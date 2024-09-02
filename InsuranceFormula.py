@@ -1,26 +1,37 @@
-# Create calculate_insurance_cost() function below: 
-def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker, name):
-  estimated_cost = 250 * age - 128 * sex + 370 * bmi + 425 * num_of_children + 24000 * smoker - 12500
-  print('The estimated insurance cost for ' + name + ' is ' + str(estimated_cost) + ' dollars.')
+# Function to estimate insurance cost:
+def estimate_insurance_cost(name, age, sex, bmi, num_of_children, smoker):
+  estimated_cost = 250*age - 128*sex + 370*bmi + 425*num_of_children + 24000*smoker - 12500
+  print(name + "'s Estimated Insurance Cost: " + str(estimated_cost) + " dollars.")
   return estimated_cost
-  
-# Create difference_between_insurance() function below to calculate the difference between insurance costs of any two individuals: 
-def difference_between_insurance(first_person, second_person):
-  if first_person > second_person:
-    difference = first_person - second_person
-  else:
-    difference = second_person - first_person
-  print('The difference in insurance cost is ' + str(difference) + ' dollars.')
-  return difference
-
+ 
 # Estimate Maria's insurance cost
-maria_insurance_cost = calculate_insurance_cost(28, 0, 26.2, 3, 0, name ='Maria')
+maria_insurance_cost = estimate_insurance_cost(name = "Maria", age = 31, sex = 0, bmi = 23.1, num_of_children = 1, smoker = 0)
 
-# Estimate Omar's insurance cost 
-omar_insurance_cost = calculate_insurance_cost(35, 1, 22.2, 0, 1, name ='Omar')
+# Estimate Rohan's insurance cost
+rohan_insurance_cost = estimate_insurance_cost(name = 
+"Rohan", age = 25, sex = 1, bmi = 28.5, num_of_children = 3, smoker = 0)
 
-# Estimate your own insurance cost
-ciara_insurance_cost = calculate_insurance_cost(24, 0, 24.2, 0, 0, name = 'Ciara')
+# Estimate Valentina's insurance cost
+valentina_insurance_cost = estimate_insurance_cost(name = "Valentina", age = 53, sex = 0, bmi = 31.4, num_of_children = 0, smoker = 1)
 
-# Estimates the difference between insurance costs
-difference_insurance = difference_between_insurance(maria_insurance_cost, omar_insurance_cost)
+# Add your code here
+names = ["Maria", "Rohan", "Valentina"]
+
+# Actual Insurance Cost Data
+insurance_costs = [4150.0, 5320.0, 35210.0]
+insurance_data = list(zip(names, insurance_costs))
+print("Here is the actual insurnace cost data: " + str(insurance_data))
+
+# Estimated Insurance Cost Data
+estimated_insurance_data = []
+estimated_insurance_data.append(("Maria", maria_insurance_cost))
+estimated_insurance_data.append(("Rohan", rohan_insurance_cost))
+estimated_insurance_data.append(("Valentina", valentina_insurance_cost))
+print("Here is the estimated insurance cost data: " + str(estimated_insurance_data))
+
+# Difference Between Actual Insurance Cost Data and Estimated Insurance Cost Data
+insurance_cost_difference = []
+insurance_cost_difference.append(estimated_insurance_data[0][1] - insurance_data[0][1])
+insurance_cost_difference.append(estimated_insurance_data[1][1] - insurance_data[1][1])
+insurance_cost_difference.append(estimated_insurance_data[2][1] - insurance_data[2][1])
+print("Here is the difference between the actual insurance cost and the estimated insurance cost: " + str(insurance_cost_difference))
